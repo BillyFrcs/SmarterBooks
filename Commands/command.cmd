@@ -1,2 +1,2 @@
-Run Database Migration: dotnet ef migrations add AddBooksToDatabase --project ProjectName
-Update Database Migration: dotnet ef database update --project ProjectName
+Run Database Migration: dotnet ef migrations add AddBooksToDatabase --project ProjectName and add-migration MigrationName
+Update Database Migration: dotnet ef database update --project ProjectName and update-database
