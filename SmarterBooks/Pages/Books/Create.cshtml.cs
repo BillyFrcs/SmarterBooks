@@ -8,7 +8,7 @@ namespace SmarterBooks.Pages.Books
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public Book Books { get; set; }
+        [BindProperty] public Book Books { get; set; }
 
         public CreateModel(ApplicationDbContext dbContext)
         {
@@ -17,6 +17,20 @@ namespace SmarterBooks.Pages.Books
 
         public void OnGet()
         {
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                await _dbContext.Books.AddAsync(Books);
+
+                await _dbContext.SaveChangesAsync();
+
+                return RedirectToPage("/Index");
+            }
+
+            return Page();
         }
     }
 }

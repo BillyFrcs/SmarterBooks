@@ -3,15 +3,15 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model IndexModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Book";
 }
 
 <div class="container row p-0 m-0">
     <div class="col-9">
-         <h2 class="text-info">Book List</h2>
+         <h2 class="text-primary">Book List</h2>
     </div> 
     <div class="col-3">
-         <a class="btn btn-info form-control text-white">Create New Book</a>
+         <a asp-page="/Books/Create" class="btn btn-primary form-control text-light">Create</a>
     </div>    
     
 	<div class="col-12 border p-3 mt-3">
