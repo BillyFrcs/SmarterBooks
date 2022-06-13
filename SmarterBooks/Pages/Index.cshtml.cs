@@ -26,5 +26,21 @@ namespace SmarterBooks.Pages
         {
             Books = await _dbContext.Books.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var book = await _dbContext.Books.FindAsync(id);
+
+            if (book != null)
+            {
+                _dbContext.Books.Remove(book);
+
+                await _dbContext.SaveChangesAsync();
+
+                return RedirectToPage("Index");
+            }
+
+            return NotFound();
+        }
     }
 }

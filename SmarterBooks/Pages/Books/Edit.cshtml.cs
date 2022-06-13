@@ -4,33 +4,38 @@ using SmarterBooks.Models;
 
 namespace SmarterBooks.Pages.Books
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
 
         [BindProperty] public Book Books { get; set; }
 
-        public CreateModel(ApplicationDbContext dbContext)
+        public EditModel(ApplicationDbContext dbContext)
         {
             this._dbContext = dbContext;
         }
 
-        public void OnGet()
+        public async Task OnGet(int id)
         {
+            Books = await _dbContext.Books.FindAsync(id);
         }
 
         public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                await _dbContext.Books.AddAsync(Books);
+                var bookDb = await _dbContext.Books.FindAsync(Books.Id);
+
+                bookDb.Name = Books.Name;
+                bookDb.Author = Books.Author;
+                bookDb.ISBN = Books.ISBN;
 
                 await _dbContext.SaveChangesAsync();
 
                 return RedirectToPage("/Index");
             }
 
-            return Page();
+            return RedirectToPage();
         }
     }
 }
