@@ -19,7 +19,10 @@
 			@if (Model.Books.Count() > Convert.ToInt32(0))
 			{
 				<table class="table table-striped border">
-					<tr class="table-secondary">
+					<tr class="table-secondary">  
+						<th>
+							<label>No</label>
+						</th>
 						<th>
 							<label asp-for="Books.FirstOrDefault().Name"></label>
 						</th> 
@@ -36,20 +39,23 @@
 						</th>
 					</tr>
 					
+					@{ var no = 1;}
+
 					@foreach (Book item in Model.Books)
 					{
 						<tr>
-							<td>  
+							<td>@(no++)</td>
+							<td>
 								@Html.DisplayFor(model => item.Name)
-							</td>	  
+							</td>
 							<td>
 								@Html.DisplayFor(model => item.Author)
-							</td>  
+							</td>
 							<td>
 								@Html.DisplayFor(model => item.ISBN)
 							</td>
 							<td>
-								<button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure want to delete?')" class="btn btn-danger btn-sm">Delete</button> 
+								<button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure want to delete?')" class="btn btn-danger btn-sm">Delete</button>
 								<a asp-page="/Books/Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
 							</td>
 						</tr>
