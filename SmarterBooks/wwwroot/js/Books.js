@@ -49,7 +49,7 @@ function Delete(url) {
     swal({
         title: "Are you sure want to delete?",
         text: "You will lose your data!",
-        icon: "warning",
+        icon: "Warning",
         dangerMode: true
     }).then((deleted) => {
         if (deleted) {
