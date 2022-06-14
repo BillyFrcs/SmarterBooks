@@ -17,6 +17,8 @@ namespace SmarterBooks.Pages
 
         public IEnumerable<Book> Books { get; set; }
 
+        [BindProperty(SupportsGet = true)] public string SearchData { get; set; }
+
         public IndexModel(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -41,6 +43,13 @@ namespace SmarterBooks.Pages
             }
 
             return NotFound();
+        }
+
+        public IEnumerable<Book> SearchBook(string searchData)
+        {
+            return Books.Where(book => book.Name!.Contains(searchData) ||
+                                       book.Author!.Contains(searchData) ||
+                                       book.ISBN!.Contains(searchData));
         }
     }
 }
