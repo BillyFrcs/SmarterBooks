@@ -10,16 +10,15 @@
 	<div class="col-9">
 		<h2 class="text-primary">Book List</h2>
 	</div>
-	<div class="col-3">
-		<a asp-page="/Books/Create" class="btn btn-primary form-control text-light">Create</a>
+	<div class="col-3 pt-1">
+		<a asp-page="/Books/Create" class="btn btn-primary form-control text-light"><i class="fa-solid fa-plus p-1"></i><b>Create</b></a>
 	</div>
 
 	<form class="d-flex" method="get">
 		<div class="input-group">
 			<div class="d-sm-inline-flex col-3 position-relative">
-				<input asp-for="SearchData" class="form-control me-sm-2" type="text" placeholder="Search"
-					spellcheck="false" data-ms-editor="true" required>
-				<button class="btn btn-dark my-2 my-sm-0 text-light position-relative" type="submit">Search</button>
+				<input class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" required>
+				<button class="btn btn-dark my-2 my-sm-0 text-light position-relative" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 			</div>
 		</div>
 	</form>
@@ -68,34 +67,8 @@
 									@Html.DisplayFor(model => item.ISBN)
 								</td>
 								<td>
-									<button asp-page-handler="Delete" asp-route-id="@item.Id"
-							onclick="return confirm('Are you sure want to delete?')"
-							class="btn btn-danger btn-sm" type="button">Delete</button>
-
-									<a asp-page="/Books/Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
-									<button id="details-click" class="btn btn-info btn-sm text-light"
-								type="button">Details</button>
-
-									<div class="modal fade" id="details-modal" tabindex="-1" role="dialog"
-								aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div class="modal-header text-center justify-content-center">
-													<h5 class="modal-title" id="exampleModalLongTitle">
-														@Html.DisplayFor(model => item.Name)</h5>
-												</div>
-												<div class="modal-body">
-													<p>Author: @Html.DisplayFor(model => item.Author)</p>
-													<p>International Standard Book Number(ISBN): @Html.DisplayFor(model =>
-											item.ISBN)</p>
-												</div>
-												<div class="modal-footer">
-													<button type="button" id="close" class="btn btn-secondary"
-												data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</div>
-									</div>
+									<button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure want to delete?')" class="btn btn-danger btn-sm" type="button"><i class="fa-solid fa-trash p-1"></i>Delete</button>
+									<a asp-page="/Books/Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square p-1"></i>Edit</a>
 								</td>
 							</tr>
 						}
@@ -109,8 +82,3 @@
 		</form>
 	</div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="~/js/site.js" type="text/javascript">
-
-</script>
