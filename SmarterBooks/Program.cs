@@ -8,8 +8,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddControllersWithViews();
-
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -30,8 +28,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.MapControllers();
 
 app.MapRazorPages();
 
