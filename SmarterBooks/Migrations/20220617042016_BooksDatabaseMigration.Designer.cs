@@ -11,8 +11,8 @@ using SmarterBooks.Models;
 namespace SmarterBooks.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220611143841_AddBooksToDatabase")]
-    partial class AddBooksToDatabase
+    [Migration("20220617042016_BooksDatabaseMigration")]
+    partial class BooksDatabaseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,10 @@ namespace SmarterBooks.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISBN")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
