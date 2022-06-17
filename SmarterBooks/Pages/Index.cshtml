@@ -8,7 +8,7 @@
 
 <div class="container row p-0 m-0">
 	<div class="col-9">
-		<h2 class="text-primary">Book List</h2>
+		<h2 class="book-text">Book List</h2>
 	</div>
 	<div class="col-3 pt-1">
 		<a asp-page="/Books/Create" class="btn btn-primary form-control text-light"><i class="fa-solid fa-plus p-1"></i><b>Create</b></a>
@@ -69,7 +69,7 @@
 									@Html.DisplayFor(model => item.ISBN)
 								</td>
 								<td>
-									<button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure want to delete?')" class="btn btn-danger btn-sm" type="submit"><i class="fa-solid fa-trash p-1"></i>Delete</button>
+									<button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure want to delete?')" class="btn btn-danger btn-sm text-light" type="submit"><i class="fa-solid fa-trash p-1"></i>Delete</button>
 									<a asp-page="/Books/Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square p-1"></i>Edit</a>
 								</td>
 							</tr>

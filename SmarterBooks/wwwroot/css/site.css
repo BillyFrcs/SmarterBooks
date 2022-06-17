@@ -20,3 +20,55 @@ body {
 .style-link {
    text-decoration: none;
 }
+
+.btn-primary {
+  color: #212529;
+  background-color: #6E3CBC;
+  border-color: #6E3CBC
+}
+
+.btn-primary:hover {
+  color: #212529;
+  background-color: #5E25B8;
+  border-color: #5E25B8
+}
+
+.btn-success {
+    color: #212529;
+    background-color: #37F0B6;
+    border-color: #37F0B6
+}
+
+.btn-success:hover {
+  color: #212529;
+  background-color: #09EBA4;
+  border-color: #09EBA4
+}
+
+.btn-danger {
+  color: #212529;
+  background-color: #EC255A;
+  border-color: #EC255A
+}
+
+.btn-danger:hover {
+  color: #212529;
+  background-color: #e61049;
+  border-color: #e61049
+}
+
+.btn-warning {
+  color: #212529;
+  background-color: #FFD365;
+  border-color: #FFD365;
+}
+
+.btn-warning:hover {
+  color: #212529;
+  background-color: #f0b31a;
+  border-color: #f0b31a;
+}
+
+.book-text {
+  color: #5463FF;
+}
