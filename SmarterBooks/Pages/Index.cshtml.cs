@@ -37,7 +37,7 @@ namespace SmarterBooks.Pages
 
                 await _dbContext.SaveChangesAsync();
 
-                return RedirectToPage("Index");
+                return RedirectToPage("/Index");
             }
 
             return NotFound();

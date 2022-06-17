@@ -11,5 +11,8 @@ namespace SmarterBooks.Models
 
         // International standard book number
         [Required] public string ISBN { get; set; }
+
+        // Date time      
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }
