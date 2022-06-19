@@ -17,12 +17,14 @@ namespace SmarterBooks.Pages
 
         public IEnumerable<Book> Books { get; set; }
 
+        [BindProperty(SupportsGet = true)] public string SearchData { get; set; }
+
         public IndexModel(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task OnGet()
+        public async Task OnGetAsync()
         {
             Books = await _dbContext.Books.ToListAsync();
         }
