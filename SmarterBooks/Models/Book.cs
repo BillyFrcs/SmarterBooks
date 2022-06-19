@@ -13,6 +13,6 @@ namespace SmarterBooks.Models
         [Required] public string ISBN { get; set; }
 
         // Date time      
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [DataType(DataType.Date)] public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }
