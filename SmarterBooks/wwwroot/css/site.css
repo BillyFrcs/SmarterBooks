@@ -33,6 +33,12 @@ body {
   border-color: #5E25B8
 }
 
+.btn-primary:focus {
+  color: #212529;
+  background-color: #6E3CBC;
+  border-color: #6E3CBC
+}
+
 .btn-success {
     color: #212529;
     background-color: #37F0B6;
@@ -43,6 +49,12 @@ body {
   color: #212529;
   background-color: #09EBA4;
   border-color: #09EBA4
+}
+
+.btn-success:focus {
+  color: #212529;
+  background-color: #37F0B6;
+  border-color: #37F0B6
 }
 
 .btn-danger {
@@ -57,6 +69,12 @@ body {
   border-color: #e61049
 }
 
+.btn-danger:focus {
+  color: #212529;
+  background-color: #EC255A;
+  border-color: #EC255A
+}
+
 .btn-warning {
   color: #212529;
   background-color: #FFD365;
@@ -67,6 +85,12 @@ body {
   color: #212529;
   background-color: #f0b31a;
   border-color: #f0b31a;
+}
+
+.btn-warning:focus {
+  color: #212529;
+  background-color: #FFD365;
+  border-color: #FFD365;
 }
 
 .book-text {
