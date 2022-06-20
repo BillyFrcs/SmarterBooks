@@ -12,8 +12,8 @@ using SmarterBooks.Models;
 namespace SmarterBooks.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220617134247_AddBooksDatabaseTable")]
-    partial class AddBooksDatabaseTable
+    [Migration("20220620131314_AddBooksToDatabaseTable")]
+    partial class AddBooksToDatabaseTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace SmarterBooks.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("SmarterBooks.Models.Book", b =>
+            modelBuilder.Entity("SmarterBooks.Models.Books", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

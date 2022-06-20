@@ -14,12 +14,12 @@
 		<a asp-page="/Books/Create" class="btn btn-primary form-control text-light"><i class="fa-solid fa-plus p-1"></i><b>Create</b></a>
 	</div>
 
-	<form class="d-flex" method="get">
+	<form class="d-flex">
 		<div class="input-group">
 			<div class="d-sm-inline-flex col-3 position-relative">
-				<input asp-for="SearchData" class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" required>
+				<input asp-for="SearchData" name="SearchData" class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" required>
 				<button class="btn btn-dark my-2 my-sm-0 text-light position-relative" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-			</div>
+			</div>				
 		</div>
 	</form>
 
@@ -28,7 +28,7 @@
 			<div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
 			@{
-				if (Model.Books.Count() > Convert.ToInt32(0))
+				if (Model.ListBooks.Count() > Convert.ToInt32(0))
 				{
 					<table class="table table-striped border">
 						<tr class="table-secondary">
@@ -55,7 +55,7 @@
 							var no = 1;
 						}
 
-						@foreach (Book item in Model.Books)
+						@foreach (Models.Books item in Model.ListBooks)
 						{
 							<tr>
 								<td>@(no++)</td>
@@ -78,7 +78,7 @@
 				}
 				else
 				{
-					<p class="text-center text-warning">Book not found!</p>
+					<p class="text-center text-warning">Data not found, lets create one!</p>
 				}
 			}
 		</form>

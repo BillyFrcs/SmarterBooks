@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using SmarterBooks.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SmarterBooks.Pages
 {
@@ -15,21 +16,34 @@ namespace SmarterBooks.Pages
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public IEnumerable<Book> Books { get; set; }
+        public IEnumerable<Models.Books> Books { get; set; }
+        public IList<Models.Books> ListBooks;
 
         [BindProperty(SupportsGet = true)] public string SearchData { get; set; }
 
         public IndexModel(ApplicationDbContext dbContext)
         {
-            _dbContext = dbContext;
+            this._dbContext = dbContext;
         }
 
         public async Task OnGetAsync()
         {
-            Books = await _dbContext.Books.ToListAsync();
+            var book = from Books in _dbContext.Books select Books;
+
+            if (!string.IsNullOrEmpty(SearchData))
+            {
+                book = book.Where(data =>
+                    data.Name.Contains(SearchData) || data.Author.Contains(SearchData) ||
+                    data.ISBN.Contains(SearchData));
+            }
+
+            ListBooks = await book.ToListAsync();
+
+            // Use this if we didn't use IList
+            // Books = await _dbContext.Books.ToListAsync();
         }
 
-        public async Task<IActionResult> OnPostDelete(int id)
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             var book = await _dbContext.Books.FindAsync(id);
 

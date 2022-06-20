@@ -22,7 +22,7 @@ namespace SmarterBooks.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("SmarterBooks.Models.Book", b =>
+            modelBuilder.Entity("SmarterBooks.Models.Books", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SmarterBooks.Migrations
 {
-    public partial class AddBooksDatabaseTable : Migration
+    public partial class AddBooksToDatabaseTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

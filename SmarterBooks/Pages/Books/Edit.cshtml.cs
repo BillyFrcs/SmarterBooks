@@ -8,19 +8,19 @@ namespace SmarterBooks.Pages.Books
     {
         private readonly ApplicationDbContext _dbContext;
 
-        [BindProperty] public Book Books { get; set; }
+        [BindProperty] public Models.Books Books { get; set; }
 
         public EditModel(ApplicationDbContext dbContext)
         {
             this._dbContext = dbContext;
         }
 
-        public async Task OnGet(int id)
+        public async Task OnGetAsync(int id)
         {
             Books = await _dbContext.Books.FindAsync(id);
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
