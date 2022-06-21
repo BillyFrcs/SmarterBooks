@@ -29,7 +29,7 @@ namespace SmarterBooks.Pages
         public async Task OnGetAsync()
         {
             IQueryable<Models.Books> book = from Books in _dbContext.Books select Books;
-                          
+
             if (!string.IsNullOrEmpty(SearchData))
             {
                 book = book.Where(data =>
