@@ -14,7 +14,7 @@
 		<a asp-page="/Books/Create" class="btn btn-primary form-control text-light"><i class="fa-solid fa-plus p-1"></i><b>Create</b></a>
 	</div>
 
-	<form class="d-flex">
+	<form class="d-flex" method="get">
 		<div class="input-group">
 			<div class="d-sm-inline-flex col-3 position-relative">
 				<input asp-for="SearchData" name="SearchData" class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" required>
