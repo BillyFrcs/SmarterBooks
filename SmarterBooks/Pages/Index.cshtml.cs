@@ -28,7 +28,7 @@ namespace SmarterBooks.Pages
 
         public async Task OnGetAsync()
         {
-            IQueryable<Models.Books> book = from Books in _dbContext.Books select Books;
+            IQueryable<Models.Books> book = from b in _dbContext.Books select b;
 
             if (!string.IsNullOrEmpty(SearchData))
             {
