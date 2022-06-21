@@ -28,8 +28,8 @@ namespace SmarterBooks.Pages
 
         public async Task OnGetAsync()
         {
-            var book = from Books in _dbContext.Books select Books;
-
+            IQueryable<Models.Books> book = from Books in _dbContext.Books select Books;
+                          
             if (!string.IsNullOrEmpty(SearchData))
             {
                 book = book.Where(data =>
@@ -45,7 +45,7 @@ namespace SmarterBooks.Pages
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var book = await _dbContext.Books.FindAsync(id);
+            Models.Books book = await _dbContext.Books.FindAsync(id);
 
             if (book != null)
             {

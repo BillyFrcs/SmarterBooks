@@ -4,7 +4,7 @@ namespace SmarterBooks.Models
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Books>? Books => Set<Books>();
+        public DbSet<Books> Books => Set<Books>();
 
         // public DbSet<Book>? Books { get; set; }
 
