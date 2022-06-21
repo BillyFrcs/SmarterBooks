@@ -8,41 +8,41 @@
 
 <div class="border-2 border container" style="padding: 30px;">
 	<form method="post">
-		<input type="hidden" asp-for="Books.Id"	/>
+		<input type="hidden" asp-for="Book.Id"	/>
 		
 		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
 		<div class="mb-3 row">
 			<div class="col-3">
-				<label asp-for="Books.Name"></label>
+				<label asp-for="Book.Name"></label>
 			</div>
 			<div class="col-6">
-				<input asp-for="Books.Name" class="form-control"/>
+				<input asp-for="Book.Name" class="form-control"/>
 			</div>
 
-			<span class="text-danger" asp-validation-for="Books.Name"></span>
+			<span class="text-danger" asp-validation-for="Book.Name"></span>
+		</div>												
+
+		<div class="mb-3 row">
+			<div class="col-3">
+				<label asp-for="Book.Author"></label>
+			</div>
+			<div class="col-6">
+				<input asp-for="Book.Author" class="form-control"/>
+			</div>
+
+			<span class="text-danger" asp-validation-for="Book.Author"></span>
 		</div>
 
 		<div class="mb-3 row">
 			<div class="col-3">
-				<label asp-for="Books.Author"></label>
+				<label asp-for="Book.ISBN"></label>
 			</div>
 			<div class="col-6">
-				<input asp-for="Books.Author" class="form-control"/>
+				<input asp-for="Book.ISBN" class="form-control"/>
 			</div>
-
-			<span class="text-danger" asp-validation-for="Books.Author"></span>
-		</div>
-
-		<div class="mb-3 row">
-			<div class="col-3">
-				<label asp-for="Books.ISBN"></label>
-			</div>
-			<div class="col-6">
-				<input asp-for="Books.ISBN" class="form-control"/>
-			</div>
-
-			<span class="text-danger" asp-validation-for="Books.ISBN"></span>
+								
+			<span class="text-danger" asp-validation-for="Book.ISBN"></span>
 		</div>
 
 		<div class="mb-3 row">

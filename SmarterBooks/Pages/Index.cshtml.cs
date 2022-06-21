@@ -16,8 +16,8 @@ namespace SmarterBooks.Pages
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public IEnumerable<Models.Books> Books { get; set; }
-        public IList<Models.Books> ListBooks;
+        public IEnumerable<Models.Books> Book { get; set; }
+        public IList<Models.Books> ListBook;
 
         [BindProperty(SupportsGet = true)] public string SearchData { get; set; }
 
@@ -37,7 +37,7 @@ namespace SmarterBooks.Pages
                     data.ISBN.Contains(SearchData));
             }
 
-            ListBooks = await book.ToListAsync();
+            ListBook = await book.ToListAsync();
 
             // Use this if we didn't use IList
             // Books = await _dbContext.Books.ToListAsync();

@@ -8,7 +8,7 @@ namespace SmarterBooks.Pages.Books
     {
         private readonly ApplicationDbContext _dbContext;
 
-        [BindProperty] public Models.Books Books { get; set; }
+        [BindProperty] public Models.Books Book { get; set; }
 
         public EditModel(ApplicationDbContext dbContext)
         {
@@ -17,18 +17,18 @@ namespace SmarterBooks.Pages.Books
 
         public async Task OnGetAsync(int id)
         {
-            Books = await _dbContext.Books.FindAsync(id);
+            Book = await _dbContext.Books.FindAsync(id);
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
-                var bookDb = await _dbContext.Books.FindAsync(Books.Id);
+                var bookDb = await _dbContext.Books.FindAsync(Book.Id);
 
-                bookDb.Name = Books.Name;
-                bookDb.Author = Books.Author;
-                bookDb.ISBN = Books.ISBN;
+                bookDb.Name = Book.Name;
+                bookDb.Author = Book.Author;
+                bookDb.ISBN = Book.ISBN;
 
                 await _dbContext.SaveChangesAsync();
 

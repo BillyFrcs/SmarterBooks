@@ -8,7 +8,7 @@ namespace SmarterBooks.Pages.Books
     {
         private readonly ApplicationDbContext _dbContext;
 
-        [BindProperty] public Models.Books Books { get; set; }
+        [BindProperty] public Models.Books Book { get; set; }
 
         public CreateModel(ApplicationDbContext dbContext)
         {
@@ -23,7 +23,7 @@ namespace SmarterBooks.Pages.Books
         {
             if (ModelState.IsValid)
             {
-                await _dbContext.Books.AddAsync(Books);
+                await _dbContext.Books.AddAsync(Book);
 
                 await _dbContext.SaveChangesAsync();
 

@@ -27,35 +27,35 @@
 		<form method="post">
 			<div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
-			@{
-				if (Model.ListBooks.Count() > Convert.ToInt32(0))
+			@{						
+				if (Model.ListBook.Count() > Convert.ToInt32(0))
 				{
 					<table class="table table-striped border">
 						<tr class="table-secondary">
-							<th>
+							<th>		
 								<label>No</label>
 							</th>
 							<th>
-								<label asp-for="Books.FirstOrDefault().Name"></label>
+								<label asp-for="Book.FirstOrDefault().Name"></label>
 							</th>
 							<th>
-								<label asp-for="Books.FirstOrDefault().Author"></label>
+								<label asp-for="Book.FirstOrDefault().Author"></label>
 
 								@*@Html.DisplayNameFor(model => model.Books.FirstOrDefault().Author);*@
 							</th>
 							<th>
-								<label asp-for="Books.FirstOrDefault().ISBN"></label>
+								<label asp-for="Book.FirstOrDefault().ISBN"></label>
 							</th>
 							<th>
 								<label>Actions</label>
 							</th>
 						</tr>
 
-						@{
+						@{				
 							var no = 1;
 						}
 
-						@foreach (Models.Books item in Model.ListBooks)
+						@foreach (Models.Books item in Model.ListBook)
 						{
 							<tr>
 								<td>@(no++)</td>
