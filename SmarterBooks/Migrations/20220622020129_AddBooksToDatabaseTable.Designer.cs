@@ -12,7 +12,7 @@ using SmarterBooks.Models;
 namespace SmarterBooks.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220620131314_AddBooksToDatabaseTable")]
+    [Migration("20220622020129_AddBooksToDatabaseTable")]
     partial class AddBooksToDatabaseTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
