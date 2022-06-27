@@ -4,8 +4,16 @@
 @model IndexModel
 @{
 	ViewData["Title"] = "Home Book";
-}
+}  
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 <div class="container row p-0 m-0">
 	<div class="col-9">
 		<h2 class="book-text">Book List</h2>
@@ -22,7 +30,7 @@
 			</div>				
 		</div>
 	</form>
-
+		
 	<div class="col-12 border p-3 mt-3">
 		<form method="post">
 			<div class="text-danger" asp-validation-summary="ModelOnly"></div>
@@ -84,3 +92,5 @@
 		</form>
 	</div>
 </div>
+</body>
+</html>
