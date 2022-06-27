@@ -21,10 +21,9 @@ namespace SmarterBooks.Pages
 
         [BindProperty(SupportsGet = true)] public string SearchData { get; set; }
 
-        public IndexModel(ApplicationDbContext dbContext)
-        {
-            this._dbContext = dbContext;
-        }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public IndexModel(ApplicationDbContext dbContext) => this._dbContext = dbContext;
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         public async Task OnGetAsync()
         {

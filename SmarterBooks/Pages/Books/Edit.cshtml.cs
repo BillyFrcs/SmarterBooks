@@ -10,12 +10,11 @@ namespace SmarterBooks.Pages.Books
 
         [BindProperty] public Models.Books Book { get; set; }
 
-        public EditModel(ApplicationDbContext dbContext)
-        {
-            this._dbContext = dbContext;
-        }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public EditModel(ApplicationDbContext dbContext) => this._dbContext = dbContext;
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-        public async Task OnGetAsync(int id)
+        public async Task OnGetAsync(int? id)
         {
             Book = await _dbContext.Books.FindAsync(id);
         }
@@ -24,15 +23,18 @@ namespace SmarterBooks.Pages.Books
         {
             if (ModelState.IsValid)
             {
-                var bookDb = await _dbContext.Books.FindAsync(Book.Id);
+                var book = await _dbContext.Books.FindAsync(Book.Id);
 
-                bookDb.Name = Book.Name;
-                bookDb.Author = Book.Author;
-                bookDb.ISBN = Book.ISBN;
+                if (book != null)
+                {
+                    book.Name = Book.Name;
+                    book.Author = Book.Author;
+                    book.ISBN = Book.ISBN;
 
-                await _dbContext.SaveChangesAsync();
+                    await _dbContext.SaveChangesAsync();
 
-                return RedirectToPage("/Index");
+                    return RedirectToPage("/Index");
+                }
             }
 
             return RedirectToPage();

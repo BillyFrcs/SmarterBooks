@@ -10,10 +10,9 @@ namespace SmarterBooks.Pages.Books
 
         [BindProperty] public Models.Books Book { get; set; }
 
-        public CreateModel(ApplicationDbContext dbContext)
-        {
-            this._dbContext = dbContext;
-        }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public CreateModel(ApplicationDbContext dbContext) => this._dbContext = dbContext;
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         public void OnGetAsync()
         {
