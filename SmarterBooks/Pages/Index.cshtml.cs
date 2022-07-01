@@ -31,7 +31,7 @@ namespace SmarterBooks.Pages
 
             if (!string.IsNullOrEmpty(SearchData))
             {
-                book = book.Where(data =>data.Name.Contains(SearchData) || data.Author.Contains(SearchData) || data.ISBN.Contains(SearchData));
+                book = book.Where(data => data.Name.Contains(SearchData) || data.Author.Contains(SearchData) || data.ISBN.Contains(SearchData));
             }
 
             ListBook = await book.ToListAsync();
