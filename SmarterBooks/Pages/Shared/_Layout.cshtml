@@ -1,58 +1,68 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - Smarter Books</title>
-	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-	<link rel="stylesheet" href="~/SmarterBooks.styles.css" asp-append-version="true"/>	
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/SmarterBooks.styles.css" asp-append-version="true" />
 	<link rel="icon" href="~/icons/SmarterBooks.ico" type="image/x-icon">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+		integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 </head>
+
 <body>
-<header>  	
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom border-3 box-shadow mb-3">
-		<div class="container">
-			<a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/icons/SmarterBooks.png" alt="" width="30" height="30" class="d-inline-block align-text-top p-1">Smarter Books</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-				<ul class="navbar-nav flex-grow-1">
-					<li class="nav-item">
-						<a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
-					</li>
-				</ul>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom border-3 box-shadow mb-3">
+			<div class="container">
+				<a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/icons/SmarterBooks.png" alt=""
+						width="30" height="30" class="d-inline-block align-text-top p-1">Smarter Books</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
-</header>  
+		</nav>
+	</header>
 
-<div class="container">
-	<main role="main" class="pb-3">
-		@RenderBody()
-	</main>
-</div>
-
-<footer class="border-top footer text-muted text-center" style="background-color: #f1f1f1;">
 	<div class="container">
-		&copy; @DateTime.Now.Year BillyFrcs - <a asp-area="" asp-page="/Privacy" class="style-link text-info">Privacy</a>
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
 	</div>
-</footer>
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
-<script src="https://kit.fontawesome.com/107abb51b0.js" crossorigin="anonymous"></script>
+	<footer class="border-top footer text-muted text-center" style="background-color: #f1f1f1;">
+		<div class="container">
+			&copy; @DateTime.Now.Year BillyFrcs - <a asp-area="" asp-page="/Privacy"
+				class="style-link text-info">Privacy</a>
+		</div>
+	</footer>
 
-@await RenderSectionAsync("Scripts", false)		
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/107abb51b0.js" crossorigin="anonymous"></script>
+
+	@await RenderSectionAsync("Scripts", false)
 
 </body>
+
 </html>

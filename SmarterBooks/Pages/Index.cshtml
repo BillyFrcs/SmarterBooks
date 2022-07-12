@@ -3,94 +3,104 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model IndexModel
 @{
-	ViewData["Title"] = "Home Book";
-}  
+    ViewData["Title"] = "Home Book";
+}
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-<div class="container row p-0 m-0">
-	<div class="col-9">
-		<h2 class="book-text">Book List</h2>
-	</div>
-	<div class="col-3 pt-1">
-		<a asp-page="/Books/Create" class="btn btn-primary form-control text-light"><i class="fa-solid fa-plus p-1"></i><b>Create</b></a>
-	</div>
+    <div class="container row p-0 m-0">
+        <div class="col-9">
+            <h2 class="book-text">Book List</h2>
+        </div>
+        <div class="col-3 pt-1">
+            <a asp-page="/Books/Create" class="btn btn-primary form-control text-light"><i
+                    class="fa-solid fa-plus p-1"></i><b>Create</b></a>
+        </div>
 
-	<form class="d-flex" method="get">
-		<div class="input-group">
-			<div class="d-sm-inline-flex col-3 position-relative">
-				<input asp-for="SearchData" name="SearchData" class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" required>
-				<button class="btn btn-dark my-2 my-sm-0 text-light position-relative" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-			</div>				
-		</div>
-	</form>
-		
-	<div class="col-12 border p-3 mt-3">
-		<form method="post">
-			<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <form class="d-flex" method="get">
+            <div class="input-group">
+                <div class="d-sm-inline-flex col-3 position-relative">
+                    <input asp-for="SearchData" name="SearchData" class="form-control me-sm-2" type="text"
+                        placeholder="Search" spellcheck="false" data-ms-editor="true" required>
+                    <button class="btn btn-dark my-2 my-sm-0 text-light position-relative" type="submit"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+        </form>
 
-			@{						
-				if (Model.ListBook.Count() > Convert.ToInt32(0))
-				{
-					<table class="table table-striped border">
-						<tr class="table-secondary">
-							<th>		
-								<label>No</label>
-							</th>
-							<th>
-								<label asp-for="Book.FirstOrDefault().Name"></label>
-							</th>
-							<th>
-								<label asp-for="Book.FirstOrDefault().Author"></label>
+        <div class="col-12 border p-3 mt-3">
+            <form method="post">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
-								@*@Html.DisplayNameFor(model => model.Books.FirstOrDefault().Author);*@
-							</th>
-							<th>
-								<label asp-for="Book.FirstOrDefault().ISBN"></label>
-							</th>
-							<th>
-								<label>Actions</label>
-							</th>
-						</tr>
+                @{
+                    if (Model.ListBook.Count() > Convert.ToInt32(0))
+                    {
+                        <table class="table table-striped border">
+                            <tr class="table-secondary">
+                                <th>
+                                    <label>No</label>
+                                </th>
+                                <th>
+                                    <label asp-for="Book.FirstOrDefault().Name"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="Book.FirstOrDefault().Author"></label>
 
-						@{				
-							var no = 1;
-						}
+                                    @*@Html.DisplayNameFor(model => model.Books.FirstOrDefault().Author);*@
+                                </th>
+                                <th>
+                                    <label asp-for="Book.FirstOrDefault().ISBN"></label>
+                                </th>
+                                <th>
+                                    <label>Actions</label>
+                                </th>
+                            </tr>
 
-						@foreach (Models.Books item in Model.ListBook)
-						{
-							<tr>
-								<td>@(no++)</td>
-								<td>
-									@Html.DisplayFor(model => item.Name)
-								</td>
-								<td>
-									@Html.DisplayFor(model => item.Author)
-								</td>
-								<td>
-									@Html.DisplayFor(model => item.ISBN)
-								</td>
-								<td>
-									<button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure want to delete?')" class="btn btn-danger btn-sm text-light" type="submit"><i class="fa-solid fa-trash p-1"></i>Delete</button>
-									<a asp-page="/Books/Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square p-1"></i>Edit</a>
-								</td>
-							</tr>
-						}
-					</table>
-				}
-				else
-				{
-					<p class="text-center text-warning">Data not found, lets create one!</p>
-				}
-			}
-		</form>
-	</div>
-</div>
+                            @{
+                                var no = 1;
+                            }
+
+                            @foreach (Models.Books item in Model.ListBook)
+                            {
+                                <tr>
+                                    <td>@(no++)</td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.Author)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.ISBN)
+                                    </td>
+                                    <td>
+                                        <button asp-page-handler="Delete" asp-route-id="@item.Id"
+                                onclick="return confirm('Are you sure want to delete?')"
+                                class="btn btn-danger btn-sm text-light" type="submit"><i
+                                        class="fa-solid fa-trash p-1"></i>Delete</button>
+                                        <a asp-page="/Books/Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm"><i
+                                        class="fa-solid fa-pen-to-square p-1"></i>Edit</a>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <p class="text-center text-warning">Data not found, lets create one!</p>
+                    }
+                }
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

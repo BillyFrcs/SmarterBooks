@@ -2,10 +2,11 @@
 @model SmarterBooks.Pages.Books.CreateModel
 @{
 	ViewData["Title"] = "Create";
-}  
+}
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,58 +14,59 @@
 </head>
 
 <body>
-<h2 class="text-primary text-center">Create New Book</h2>		   
+	<h2 class="text-primary text-center">Create New Book</h2>
 
-<div class="border-2 border container" style="padding: 30px;">
-	<form method="post">	
-		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
-		
-		<div class="mb-3 row">
-			<div class="col-3">					
-				<label asp-for="Book.Name"></label>
+	<div class="border-2 border container" style="padding: 30px;">
+		<form method="post">
+			<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+			<div class="mb-3 row">
+				<div class="col-3">
+					<label asp-for="Book.Name"></label>
+				</div>
+				<div class="col-6">
+					<input asp-for="Book.Name" class="form-control" />
+				</div>
+
+				<span class="text-danger" asp-validation-for="Book.Name"></span>
 			</div>
-			<div class="col-6">		
-				<input asp-for="Book.Name" class="form-control" />
-			</div> 	
-												
-			<span class="text-danger" asp-validation-for="Book.Name"></span>
-		</div>	
-		
-		<div class="mb-3 row">
-			<div class="col-3">
-				<label asp-for="Book.Author"></label>
+
+			<div class="mb-3 row">
+				<div class="col-3">
+					<label asp-for="Book.Author"></label>
+				</div>
+				<div class="col-6">
+					<input asp-for="Book.Author" class="form-control" />
+				</div>
+
+				<span class="text-danger" asp-validation-for="Book.Author"></span>
 			</div>
-			<div class="col-6">		
-				<input asp-for="Book.Author" class="form-control" />
-			</div> 
-	
-			<span class="text-danger" asp-validation-for="Book.Author"></span>
-		</div>
-		
-		<div class="mb-3 row">
-			<div class="col-3">
-				<label asp-for="Book.ISBN"></label>
+
+			<div class="mb-3 row">
+				<div class="col-3">
+					<label asp-for="Book.ISBN"></label>
+				</div>
+				<div class="col-6">
+					<input asp-for="Book.ISBN" class="form-control" />
+				</div>
+
+				<span class="text-danger" asp-validation-for="Book.ISBN"></span>
 			</div>
-			<div class="col-6">		
-				<input asp-for="Book.ISBN" class="form-control" />
-			</div> 
-	
-			<span class="text-danger" asp-validation-for="Book.ISBN"></span>
-		</div>
-		
-		<div class="mb-3 row">
-			<div class="col-3 offset-3">
-				<input type="submit" value="Add" class="btn btn-success form-control" />
-			</div>	  
-			<div class="col-3">
-				<a asp-page="/Index" class="btn btn-warning form-control">Back</a>
+
+			<div class="mb-3 row">
+				<div class="col-3 offset-3">
+					<input type="submit" value="Add" class="btn btn-success form-control" />
+				</div>
+				<div class="col-3">
+					<a asp-page="/Index" class="btn btn-warning form-control">Back</a>
+				</div>
 			</div>
-		</div>
-	</form>
-</div>
+		</form>
+	</div>
 </body>
+
 </html>
 
 @section Scripts{
-	<partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }
