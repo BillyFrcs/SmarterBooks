@@ -6,7 +6,7 @@ add-migration MigrationName
 update-database
 
 # Visual Studio Code:
-# Run Database Migration: 
+# Run Database Migration
 dotnet ef migrations add MigrationName --project ProjectName
 
 # Update Database Migration
